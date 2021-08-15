@@ -1,8 +1,9 @@
 /**
  *  GLECB - Gerador de Listas de Estados e Cidades Brasileiras
  *
+ *  Versão: 1.0.0
  *  Autor: Thales Marcel Souza Silva
- *  Data: 14/08/2021
+ *  Data: 15/08/2021
  *
  *  Gerador de listas de estados e cidades em formato JSON, a partir da API de
  * localidades do IBGE, sem o excesso de dados existente nos retornos da API.
@@ -25,14 +26,14 @@ let url;
 /** Recebe os dados brutos obtidos pela função "fetch" */
 let resposta;
 
-/** Array de estados */
+/** Vetor de estados */
 let estados;
 
-/** Array temporário de cidades */
+/** Vetor temporário de cidades */
 let _cidades;
 
 /**
- *  Array de cidades, formado pela concatenação dos dados obtidos do array
+ *  Matriz de cidades, formado pela concatenação dos dados obtidos do vetor
  * "_cidades", nas iterações do bloco de laço
 */
 let cidades = [];
@@ -54,7 +55,7 @@ url = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome'
 console.log('Obtendo a lista de estados do Brasil...');
 resposta = await fetch(url);
 estados = await resposta.json();
-chaves = ['id', 'sigla', 'nome'];
+chaves = ['nome', 'sigla'];
 str_json = JSON.stringify(estados, chaves);
 console.log('Armazenando a lista de estados no arquivo "estados.json"...');
 arquivo = fs.openSync('./json/estados.json', 'w+');
@@ -65,21 +66,26 @@ fs.closeSync(arquivo);
 
 /****************** Importar os dados referentes às cidades *******************/
 
-/* Formação do array "cidades" */
+/* Formação da matriz "cidades" */
 for (let i = 0; i < estados.length; i++) {
-  console.log('Obtendo a lista de cidades do estado de ' + estados[i]['nome'] + '...');
+  console.log('Estado: ' + estados[i]['nome'] + '. Obtendo a lista de cidades...');
 
   url = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/' + estados[i]['id'].toString() + '/municipios?orderBy=nome';
 
   resposta = await fetch(url);
   _cidades = await resposta.json();
-  /* concatenação da lista de cidades do estado "i" no array "cidades" */
-  cidades.push(_cidades);
+
+  /* Adição de um novo vetor à matriz "cidades" */
+  cidades.push(new Array());
+
+  /* Concatenação do vetor de cidades do estado "i" na matriz "cidades" */
+  for (let j = 0; j < _cidades.length; j++) {
+    cidades[i].push(_cidades[j]['nome']);
+  }
 }
 
-/* Armazenamento do conteúdo relevante de "cidades" no arquivo "cidades.json" */
-chaves = ['nome'];
-str_json = JSON.stringify(cidades, chaves);
+/* Armazenamento do conteúdo de "cidades" no arquivo "cidades.json" */
+str_json = JSON.stringify(cidades);
 console.log('Armazenando a lista de cidades no arquivo "cidades.json"...');
 arquivo = fs.openSync('./json/cidades.json', 'w+');
 fs.writeFileSync(arquivo, str_json);
