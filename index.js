@@ -1,9 +1,9 @@
 /**
  *  GLECB - Gerador de Listas de Estados e Cidades Brasileiras
  *
- *  Versão: 1.0.3
+ *  Versão: 1.0.4
  *  Autor: Thales Marcel Souza Silva
- *  Data: 29/06/2023
+ *  Data: 22/07/2023
  *
  * CHANGELOG
  *
