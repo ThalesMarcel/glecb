@@ -1,9 +1,9 @@
 /**
  *  GLECB - Gerador de Listas de Estados e Cidades Brasileiras
  *
- *  Versão: 1.0.5
+ *  Versão: 1.0.6
  *  Autor: Thales Marcel Souza Silva
- *  Data: 17/10/2023
+ *  Data: 19/11/2024
  *
  * CHANGELOG
  *
@@ -13,6 +13,7 @@
  * v1.0.3 - 29/06/2023 - atualização de segurança das dependências
  * v1.0.4 - 22/07/2023 - atualização de segurança das dependências
  * v1.0.5 - 17/10/2023 - atualização de segurança das dependências
+ * v1.0.6 - 19/11/2024 - atualização de segurança das dependências
  *
  *  Gerador de listas de estados e cidades em formato JSON, a partir da API de
  * localidades do IBGE, sem o excesso de dados existente nos retornos da API.
