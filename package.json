@@ -17,5 +17,6 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0"
-  }
+  },
+  "packageManager": "yarn@4.5.1"
 }
