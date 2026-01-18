@@ -1,0 +1,16 @@
+{
+  "name": "glecb",
+  "version": "2.0.0",
+  "description": "Gerador de Listas de Estados e Cidades Brasileiras.",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThalesMarcel/glecb.git"
+  },
+  "author": "Thales Marcel Souza Silva",
+  "license": "MIT"
+}
