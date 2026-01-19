@@ -1,6 +1,3 @@
-# Dependências do Node.js utilizadas no desenvolvimento do projeto
-node_modules
-
 # Arquivos gerados pelo desenvolvimento do projeto no Visual Studio Code
 .vscode/*
 *.code-workspace
