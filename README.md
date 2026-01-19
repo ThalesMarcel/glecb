@@ -5,16 +5,17 @@ Os dados são obtidos diretamente da **API de localidades do IBGE**, de forma ot
 
 ## ✨ O que há de novo na versão 2.0
 
-- **Zero-dependency:** não utiliza pacotes externos, utilizando a Fetch API nativa do Node.js.
 - **Uso de JavaScript moderno:** código escrito seguindo os padrões modernos do JavaScript (ECMAScript), projetado para execução em Node.js versão 20.0.0 ou superior.
 
-### ♻️ Principais mudanças realizadas
+- **Zero-dependency:** não utiliza pacotes externos, utilizando a Fetch API nativa do Node.js.
 
-- **API Fetch Nativa:** substituição da dependência externa `node-fetch` pelo método `fetch` nativo do Node.js 20+, o que elimina a necessidade de um `yarn.lock` ou pasta `node_modules` para o funcionamento básico.
+### ♻️ Principais mudanças realizadas
 
 - **Sintaxe `import/export`:** migração do CommonJS para ECMAScript, que é o padrão atual da indústria.
 
 - **Template Literals:** limpeza de código usando `${}` para concatenar strings, tornando a leitura mais fluida.
+
+- **API Fetch Nativa:** substituição da dependência externa `node-fetch` pelo método `fetch` nativo do Node.js 20+, o que elimina a necessidade de um `yarn.lock` ou pasta `node_modules` para o funcionamento básico.
 
 - **Tratamento de Erros:** adicionada verificação básica da resposta da API do IBGE (`if !respostaAPI.ok`) para capturar falhas de rede de forma mais robusta.
 
@@ -32,7 +33,7 @@ Clone o repositório:
 git clone https://github.com/ThalesMarcel/glecb.git
 ```
 
-### Execução direta
+### ▶️ Execução direta
 
 Execute o script principal para gerar os arquivos JSON:
 
@@ -40,7 +41,7 @@ Execute o script principal para gerar os arquivos JSON:
 node index.js
 ```
 
-### Execução como módulo
+### 🧩 Execução como módulo
 
 O GLECB também pode ser utilizado como dependência em outro projeto, por meio de importação local:
 
